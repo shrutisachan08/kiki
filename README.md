@@ -1,6 +1,6 @@
 # 🎙️ Voice-Controlled Raspberry Pi Assistant for the Visually Impaired
 
-An AI-powered voice assistant designed to help visually impaired users using Raspberry Pi. It recognizes voice commands, fetches real-time news, tells the time, and responds audibly using speech synthesis.
+An AI-powered voice assistant designed to assist visually impaired users using a Raspberry Pi. It responds to voice commands, fetches live news and weather, announces time, and speaks back to the user using speech synthesis.
 
 ---
 
@@ -8,23 +8,47 @@ An AI-powered voice assistant designed to help visually impaired users using Ras
 
 - 🎧 Voice-controlled interaction
 - 🗞️ Real-time news updates (NewsAPI / SerpAPI)
-- 🕒 Voice-based time announcements
-- 🗣️ Text-to-speech output using `gTTS` / `pyttsx3`
-- 💻 Compatible with Raspberry Pi 3/4 (offline-capable)
-- 🔊 Audible feedback and error handling
+- 🌦️ Live weather updates (OpenWeatherMap API)
+- 🕒 Tells current time
+- 🗣️ Text-to-speech output (using `gTTS` / `pyttsx3`)
+- 💻 Lightweight: Runs on Raspberry Pi 3/4
 
 ---
 
 ## 🔐 API Keys Used
 
-| Service   | Purpose                | Where to Get It                            |
-|-----------|------------------------|---------------------------------------------|
-| **NewsAPI**   | Fetching live news articles | [https://newsapi.org/](https://newsapi.org/) |
-| **SerpAPI**   | Alternative for news scraping via Google | [https://serpapi.com/](https://serpapi.com/) |
-| *(Optional)* OpenAI | For future RAG/Q&A enhancement | [https://platform.openai.com/](https://platform.openai.com/) |
+| Service             | Purpose                    | Get API Key From                             |
+|---------------------|-----------------------------|-----------------------------------------------|
+| **NewsAPI**         | Fetching live news articles | [newsapi.org](https://newsapi.org/)           |
+| **SerpAPI**         | Google-based news fallback  | [serpapi.com](https://serpapi.com/)           |
+| **OpenWeatherMap**  | Fetching weather info       | [openweathermap.org](https://openweathermap.org/) |
+| *(Optional)* OpenAI | Future RAG/Q&A integration  | [platform.openai.com](https://platform.openai.com/) |
 
-➡️ **Place your API keys in a file named `config.py`:**
+➡️ **Place your keys in a `config.py` file:**
 ```python
-NEWS_API_KEY = "your_newsapi_key_here"
-SERPAPI_KEY = "your_serpapi_key_here"
-OPENAI_API_KEY = "your_openai_key_here"  # optional
+NEWS_API_KEY = "your_newsapi_key"
+SERPAPI_KEY = "your_serpapi_key"
+WEATHER_API_KEY = "your_openweather_api_key"
+OPENAI_API_KEY = "your_openai_key"  # optional
+
+Tech Stack
+Language: Python 3
+
+Libraries: speech_recognition, gTTS, pyttsx3, requests, playsound
+
+Platform: Raspberry Pi
+
+Setup Instructions
+Clone the Repository
+git clone https://github.com/yourusername/raspberry-voice-assistant.git
+cd raspberry-voice-assistant
+
+Install Dependencies
+pip install -r requirements.txt
+
+Add API Keys
+Create a config.py with your keys (see above).
+
+Run the Assistant
+python main.py
+
